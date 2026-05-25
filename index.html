@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Developer Presentation - S Jaya Kumar</title>
+    <style>
+        /* Global Presentation Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #555; /* Dark background outside slides */
+            color: #000;
+        }
+
+        /* Slide Canvas - A4 Landscape Dimensions with Python Watermark */
+        .slide {
+            width: 297mm;
+            height: 210mm;
+            margin: 20px auto;
+            background-color: #ffffff;
+            /* Embedded Base64 Python Logo Watermark */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23f0f4f8"><path d="M50 15c-15 0-15 7-15 7v10h15v3H32s-10-1-10 15 10 15 10 15h6v-12c0-8 7-14 15-14h14v-9c0-10-5-15-17-15zm-5 5a3 3 0 110 6 3 3 0 010-6zm23 23c-8 0-14 6-14 14v9H40v12c0 10 5 15 17 15s17-7 17-7V67H59v-3h18s10 1 10-15-10-15-10-15H50v10h18zm-5 28a3 3 0 110 6 3 3 0 010-6z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 60%;
+            box-sizing: border-box;
+            position: relative;
+            page-break-after: always;
+            page-break-inside: avoid;
+            border: 1px solid #ccc;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            border-top: 8px solid #306998;
+        }
+
+        .slide-content {
+            padding: 15mm 20mm 20mm 20mm;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            z-index: 2; /* Keeps text above watermark */
+        }
+
+        .title-slide {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Typography */
+        h1 { font-size: 38pt; font-weight: 700; color: #306998; margin: 10px 0; text-transform: uppercase; }
+        h2 { font-size: 28pt; font-weight: 700; color: #306998; margin-bottom: 20px; border-bottom: 4px solid #FFD43B; padding-bottom: 10px; display: inline-block;}
+        h3 { font-size: 20pt; font-weight: 600; margin-bottom: 15px; color: #111; }
+        p, li { font-size: 18pt; line-height: 1.6; margin-bottom: 15px; text-align: justify; }
+        ul { margin-left: 30px; }
+        li { margin-bottom: 12px; }
+
+        /* Logos Setup */
+        .logo-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.8);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        .slide-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12pt;
+            color: #fff;
+            background-color: #306998;
+            border-top: 3px solid #FFD43B;
+            padding: 8px 15mm;
+            z-index: 10;
+        }
+
+        .two-column { display: flex; gap: 40px; flex: 1; }
+        .column { flex: 1; display: flex; flex-direction: column; }
+
+        /* ADVANCED GRAPHICAL FLOWCHART STYLES */
+        .advanced-flow { display: flex; align-items: center; justify-content: center; gap: 15px; width: 100%; }
+        .flow-card {
+            background: #fff; border: 2px solid #306998; border-radius: 12px; padding: 12px;
+            text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.15); position: relative;
+        }
+        .flow-icon { font-size: 28pt; margin-bottom: 5px; }
+        .flow-title { font-weight: bold; font-size: 14pt; color: #306998; margin-bottom: 5px; text-transform: uppercase; }
+        .flow-desc { font-size: 11pt; color: #444; line-height: 1.3; }
+        .flow-arrow-adv { font-size: 24pt; color: #c00000; font-weight: bold; }
+
+        /* Mobile Print Engine Overrides */
+        @page { size: A4 landscape; margin: 0mm !important; }
+        @media print {
+            body { background: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .slide { margin: 0 !important; box-shadow: none !important; border-left: none !important; border-right: none !important; border-bottom: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <div class="slide-content title-slide">
+            <div style="font-size: 18pt; font-style: italic; margin-bottom: 10px; color: #555;">An Internship Report Presentation On</div>
+            <h1 style="font-size: 44pt; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">PYTHON DEVELOPER</h1>
+            
+            <div class="logo-row" style="margin-top: 20px; margin-bottom: 20px;">
+                <img src="Hl.jpeg" style="width: 140px; object-fit: contain;" alt="Harsha Logo">
+                <img src="cl1.jpeg" style="width: 250px; object-fit: contain;" alt="Codec Logo">
+                <img src="Bl.jpeg" style="width: 120px; object-fit: contain;" alt="BU Logo">
+            </div>
+
+            <div style="font-size: 16pt; font-weight: bold; margin-bottom: 5px;">Submitted by:</div>
+            <div style="font-size: 26pt; font-weight: bold; color: #306998; margin-bottom: 5px; border-bottom: 3px solid #FFD43B; padding-bottom: 5px;">S JAYA KUMAR</div>
+            <div style="font-size: 18pt; font-weight: bold; margin-bottom: 20px;">U03EC23S0158</div>
+
+            <div style="font-size: 16pt; font-weight: bold;">Harsha Institute Of Management Studies</div>
+            <div style="font-size: 14pt; color: #555; margin-top: 5px;">VI Semester BCA (May-2026)</div>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 1</span></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div style="width: 100%;"><h2>About The Organization</h2></div>
+            <div class="two-column">
+                <div class="column">
+                    <h3>Codec Technologies</h3>
+                    <ul>
+                        <li>A premier training institute based in Bengaluru.</li>
+                        <li>Focuses on bridging the gap between academic theory and industry requirements.</li>
+                        <li>Provides hands-on, practical training in Web Development, AI, Machine Learning, and Cybersecurity.</li>
+                        <li>AICTE and ICAC approved organization.</li>
+                    </ul>
+                </div>
+                <div class="column" style="justify-content: center; align-items: center;">
+                    <div style="background: white; padding: 20px; border: 3px dashed #306998; border-radius: 10px;">
+                        <img src="cl1.jpeg" style="width: 100%; max-width: 300px; object-fit: contain;" alt="Codec Logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 2</span></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div style="width: 100%;"><h2>Introduction to Python</h2></div>
+            <div class="two-column">
+                <div class="column" style="flex: 1.5;">
+                    <ul>
+                        <li><strong>High-Level & Interpreted:</strong> Python is known for its clear, human-readable syntax, drastically reducing the learning curve for software development.</li>
+                        <li><strong>Versatile Paradigms:</strong> It seamlessly supports structured, object-oriented, and functional programming methodologies.</li>
+                        <li><strong>Comprehensive Standard Library:</strong> Allows developers to handle everything from basic terminal scripting to complex web development and data handling.</li>
+                        <li><strong>Internship Focus:</strong> Served as the core foundation for understanding programming logic, memory management, and algorithmic thinking before transitioning to advanced frameworks.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 3</span></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div style="width: 100%;"><h2>Significance of Python Development</h2></div>
+            <div class="two-column">
+                <div class="column">
+                    <h3>1. Rapid Prototyping</h3>
+                    <p style="font-size: 16pt;">Python's simple syntax allows developers to write less code to achieve the same results compared to C++ or Java, significantly reducing development time.</p>
+                    
+                    <h3>2. Cross-Platform Compatibility</h3>
+                    <p style="font-size: 16pt;">Python scripts are highly portable. They run seamlessly across Windows, macOS, and Linux hardware without requiring major code alterations.</p>
+                </div>
+                <div class="column">
+                    <h3>3. Extensive Ecosystem</h3>
+                    <p style="font-size: 16pt;">Boasts a massive collection of third-party packages for web development (Flask/Django) and data analysis (Pandas), accelerating project completion.</p>
+                    
+                    <h3>4. Global Community</h3>
+                    <p style="font-size: 16pt;">Supported by one of the largest developer communities, ensuring continuous updates, security patches, and extensive documentation.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 4</span></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div style="width: 100%;"><h2>Python Execution Architecture</h2></div>
+            <p style="text-align: center; font-style: italic; color: #555; margin-bottom: 20px;">The internal pipeline of how Python translates developer logic into machine action.</p>
+            
+            <div class="advanced-flow" style="margin-top: 10px;">
+                <div class="flow-card" style="width: 18%;">
+                    <div class="flow-icon">📝</div>
+                    <div class="flow-title">1. Source Code</div>
+                    <div class="flow-desc">Developer writes high-level logic in <b>.py</b> files</div>
+                </div>
+                <div class="flow-arrow-adv">➔</div>
+                
+                <div class="flow-card" style="width: 18%;">
+                    <div class="flow-icon">⚙️</div>
+                    <div class="flow-title">2. Compiler</div>
+                    <div class="flow-desc">System checks syntax & translates code natively</div>
+                </div>
+                <div class="flow-arrow-adv">➔</div>
+                
+                <div class="flow-card" style="width: 18%;">
+                    <div class="flow-icon">📄</div>
+                    <div class="flow-title">3. Bytecode</div>
+                    <div class="flow-desc">Code is converted into platform-independent <b>.pyc</b></div>
+                </div>
+                <div class="flow-arrow-adv">➔</div>
+                
+                <div class="flow-card" style="width: 18%; border-color: #c00000; box-shadow: 0 0 15px rgba(192,0,0,0.2);">
+                    <div class="flow-icon">💻</div>
+                    <div class="flow-title" style="color: #c00000;">4. PVM</div>
+                    <div class="flow-desc">Python Virtual Machine processes the bytecode</div>
+                </div>
+                <div class="flow-arrow-adv">➔</div>
+                
+                <div class="flow-card" style="width: 18%; background: #306998; color: white;">
+                    <div class="flow-icon">🚀</div>
+                    <div class="flow-title" style="color: #FFD43B;">5. Execution</div>
+                    <div class="flow-desc" style="color: #eee;">Program runs dynamically on the host hardware</div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 5</span></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div style="width: 100%;"><h2>Technologies & Tools Mastered</h2></div>
+            <div class="two-column">
+                <div class="column">
+                    <h3>Core Languages & Frameworks</h3>
+                    <ul>
+                        <li><strong>Python:</strong> Core language used for backend logic and Object-Oriented Programming (OOP).</li>
+                        <li><strong>Flask:</strong> Lightweight web framework used for building backend routing and custom API endpoints.</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Data & Environments</h3>
+                    <ul>
+                        <li><strong>Pandas:</strong> Utilized for advanced data cleaning, manipulation, and analysis.</li>
+                        <li><strong>Requests Library:</strong> Used for secure cross-system data exchange and consuming external APIs.</li>
+                        <li><strong>IDE & Servers:</strong> Visual Studio Code, Termux (Linux Mobile Node), and Replit.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 6</span></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div style="width: 100%;"><h2>Internship Training Progression</h2></div>
+            <ul>
+                <li><strong>Phase 1: Python Fundamentals</strong><br> Mastered core constructs, dynamic typing, control structures, and memory management.</li>
+                <li><strong>Phase 2: Advanced OOP & Data Structures</strong><br> Developed custom classes, implemented polymorphism, and manipulated complex lists/dictionaries.</li>
+                <li><strong>Phase 3: File Handling & Modules</strong><br> Engineered scripts for persistent data storage (CSV/JSON) and utilized the PIP package manager.</li>
+                <li><strong>Phase 4: Web Frameworks & APIs</strong><br> Transitioned from terminal scripting to hosting browser-based applications using Flask and RESTful services.</li>
+            </ul>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 7</span></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content title-slide" style="background-color: #306998; color: white; border-radius: 15px; margin: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
+            <h2 style="color: white; border-bottom-color: #FFD43B;">CAPSTONE PROJECT</h2>
+            <h1 style="color: #FFD43B; font-size: 42pt; margin-top: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">TITANIUM SHIELD</h1>
+            <h3 style="color: white; font-style: italic;">Live Market Tracker & Vault</h3>
+            <p style="text-align: center; max-width: 80%; margin-top: 30px; font-size: 20pt; color: #f0f4f8;">
+                An enterprise-grade, real-time financial tracking dashboard deployed within an ultra-secure, zero-trust mobile server architecture.
+            </p>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 8</span></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div style="width: 100%;"><h2>Titanium Shield: System Dataflow</h2></div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 0px;">
+                
+                <div style="display: flex; gap: 20px; justify-content: center; width: 100%;">
+                    <div class="flow-card" style="width: 30%; padding: 8px;">
+                        <div class="flow-icon">🌐</div>
+                        <div class="flow-title">1. Client Interface</div>
+                        <div class="flow-desc">User accesses dashboard via Web Browser</div>
+                    </div>
+                </div>
+                
+                <div class="flow-arrow-adv" style="transform: rotate(90deg); margin: 0px;">➔</div>
+                
+                <div style="display: flex; gap: 20px; justify-content: center; width: 100%;">
+                    <div class="flow-card" style="width: 30%; border-color: #c00000; padding: 8px;">
+                        <div class="flow-icon">🛡️</div>
+                        <div class="flow-title" style="color:#c00000;">2. Zero-Trust Network</div>
+                        <div class="flow-desc">Cloudflare masks host IP & encrypts traffic</div>
+                    </div>
+                    <div class="flow-arrow-adv">➔</div>
+                    <div class="flow-card" style="width: 30%; border-color: #c00000; padding: 8px;">
+                        <div class="flow-icon">🔑</div>
+                        <div class="flow-title" style="color:#c00000;">3. Security Gateway</div>
+                        <div class="flow-desc">Master Code verification & JS Session control</div>
+                    </div>
+                </div>
+
+                <div class="flow-arrow-adv" style="transform: rotate(90deg); margin: 0px;">➔</div>
+
+                <div style="display: flex; gap: 20px; justify-content: center; width: 100%;">
+                    <div class="flow-card" style="width: 35%; background: #f0f4f8; padding: 8px;">
+                        <div class="flow-icon">⚙️</div>
+                        <div class="flow-title">4. Core Backend</div>
+                        <div class="flow-desc">Flask engine routes logic & validates session</div>
+                    </div>
+                    <div class="flow-card" style="width: 35%; background: #f0f4f8; padding: 8px;">
+                        <div class="flow-icon">🐧</div>
+                        <div class="flow-title">5. Localized Node</div>
+                        <div class="flow-desc">Termux hosts the Linux server on Mobile RAM</div>
+                    </div>
+                </div>
+
+                <div class="flow-arrow-adv" style="transform: rotate(90deg); margin: 0px;">➔</div>
+
+                <div style="display: flex; gap: 20px; justify-content: center; width: 100%;">
+                    <div class="flow-card" style="width: 45%; background: #306998; color: white; padding: 8px;">
+                        <div class="flow-icon">📈</div>
+                        <div class="flow-title" style="color: #FFD43B;">6. Live Data Integration</div>
+                        <div class="flow-desc" style="color: #eee;">TradingView APIs inject zero-latency market charts directly to the client</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 9</span></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div style="width: 100%;"><h2>Titanium Shield: Architecture Details</h2></div>
+            <div class="two-column">
+                <div class="column">
+                    <h3>Deployment & APIs</h3>
+                    <ul>
+                        <li><strong>Termux Linux Node:</strong> Deployed a localized Linux environment entirely on mobile hardware.</li>
+                        <li><strong>TradingView APIs:</strong> Integrated client-side rendering for live candlestick charts without overloading the local server.</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Zero-Trust Security</h3>
+                    <ul>
+                        <li><strong>Cloudflare Tunnels:</strong> Masked the host IP and broadcasted the server securely over HTTPS.</li>
+                        <li><strong>Master Key Gateway:</strong> Built a highly restricted gateway blocking unauthorized login attempts.</li>
+                        <li><strong>Auto-Terminating Sessions:</strong> Hardcoded JavaScript and Flask protocols to instantly destroy sessions upon tab closure.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 10</span></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div style="width: 100%;"><h2>Live System Results</h2></div>
+            <div class="two-column" style="align-items: center;">
+                <div class="column">
+                    <p style="font-size: 16pt;"><strong>Successful Deployment:</strong> The dashboard integrates advanced client-side APIs to deliver live market data and a global stock screener with zero latency.</p>
+                    <p style="font-size: 16pt;"><strong>Mobile-Node Viability:</strong> Proved the concept of utilizing localized mobile hardware as a dedicated Linux server without thermal throttling.</p>
+                </div>
+                <div class="column" style="flex-direction: row; gap: 15px; background: #111; padding: 15px; border-radius: 10px; height: 100mm; border: 3px solid #306998; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                    <div style="flex: 1; height: 100%; display: flex; justify-content: center; align-items: center; border-right: 2px solid #333;">
+                        <img src="O1.png" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="Dashboard 1">
+                    </div>
+                    <div style="flex: 1; height: 100%; display: flex; justify-content: center; align-items: center;">
+                        <img src="O2.png" style="max-width: 100%; max-height: 100%; object-fit: contain;" alt="Dashboard 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 11</span></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <div style="width: 100%;"><h2>Conclusion</h2></div>
+            <ul>
+                <li>The internship provided an intensive, hands-on bridge between BCA academic theory and real-world industry application.</li>
+                <li>Successfully engineered complex, globally accessible web architectures from scratch.</li>
+                <li>Developed a comprehensive understanding of network security, deployment strategies, and responsive data integration.</li>
+                <li>The competencies gained in Python frameworks and localized server hosting serve as a direct launchpad into a career as a Full-Stack Developer.</li>
+            </ul>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 12</span></div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content title-slide" style="background-color: #f0f4f8; margin: 10px; border-radius: 15px; border: 3px dashed #306998;">
+            <h1 style="font-size: 52pt; color: #306998; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">THANK YOU</h1>
+            <p style="font-size: 26pt; font-weight: bold; color: #111; border-bottom: 3px solid #FFD43B; display: inline-block; padding-bottom: 5px;">S Jaya Kumar</p>
+            <p style="font-size: 18pt; color: #444; margin-top: 15px;">BCA VI Semester | U03EC23S0158</p>
+            <p style="font-size: 18pt; color: #444;">Harsha Institute Of Management Studies</p>
+        </div>
+        <div class="slide-footer"><span>Python Developer Internship</span><span>Slide 13</span></div>
+    </div>
+
+</body>
+</html>
